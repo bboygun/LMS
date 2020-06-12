@@ -27,3 +27,4 @@
 		borrowdate,DATE;
 		returndate,DATE;
 		handler,CHAR(7);
+使用前先在administrator表格下自行创建一个管理员
