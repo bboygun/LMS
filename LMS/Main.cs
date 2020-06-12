@@ -192,7 +192,7 @@ namespace LMS
                 if (years.Length == 1)
                     sql += " and year='" + txtQueryYear.Text + "'";
                 else if (years.Length == 2)
-                    sql += "and year>'" + years[0] + "' and year<'" + years[1] + "'";
+                    sql += " and year>=" + years[0] + " and year<=" + years[1] ;
             }
 
             if (txtQueryAuthor.Text != "")
@@ -272,20 +272,7 @@ namespace LMS
                 MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                 MySqlDataReader reader2 = cmd2.ExecuteReader();
                 int cnt = 0;
-                //while (reader2.Read())
-                //{
-                //    string bookNumber = reader2[0].ToString();
-                //    string sqltmp = "select * from book where booknumber='" + bookNumber + "'";
-                //    MySqlCommand cmdTmp = new MySqlCommand(sqltmp, conn);
-                //    MySqlDataReader bookReader = cmdTmp.ExecuteReader();
-                //    bookReader.Read();
-                //    ListViewItem tmp = new ListViewItem();
-                //    cnt++;
-                //    tmp.Text = cnt.ToString();
-                //    for (int i = 0; i <= 8; i++)
-                //        tmp.SubItems.Add(bookReader[i].ToString());
-                //    listBorrowedBook.Items.Add(tmp);
-                //}
+
                 Queue q = new Queue();
                 while(reader2.Read())
                 {
